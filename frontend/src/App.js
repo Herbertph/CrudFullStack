@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyle from "./styles/global";
+import styled from "styled-components";
+import Form from "./components/Form.js";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const Container = styled.div`
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;
+
+const Title = styled.h2``;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Container>
+        <Title>Users</Title>
+        <Form />
+      </Container>
+      <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />
+      <GlobalStyle />
+    </>
   );
 }
 
