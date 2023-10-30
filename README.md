@@ -1,6 +1,6 @@
 # CRUD User Management
 
-A simple CRUD (Create, Read, Update, Delete) application to manage users, built using React for the frontend and Node.js for the backend.
+A simple CRUD (Create, Read, Update, Delete) application to manage users, built using React for the frontend, Node.js for the backend and MySQL for the Database.
 
 ## Table of Contents
 
