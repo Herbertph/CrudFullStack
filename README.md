@@ -32,13 +32,6 @@ A simple CRUD (Create, Read, Update, Delete) application to manage users, built 
   - Parameters: `name`, `email`, `phone`, `birthdate`
 - **DELETE** `/users/:id`: Delete a user.
 
-## Contributing
-
-1. Fork the repository.
-2. Create a new branch.
-3. Make your changes and commit them.
-4. Push your changes to your fork.
-5. Create a pull request.
 
 ## License
 
