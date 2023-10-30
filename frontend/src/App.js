@@ -1,10 +1,10 @@
+import React, { useEffect, useState } from "react";
 import GlobalStyle from "./styles/global";
 import styled from "styled-components";
 import Form from "./components/Form.js";
+import Grid from "./components/Grid";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Grid from "./components/Grid";
-import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Container = styled.div`
@@ -19,12 +19,22 @@ const Container = styled.div`
 
 const Title = styled.h2``;
 
-
-
+/**
+ * Main App component that renders the Users UI.
+ *
+ * @component
+ * @returns {JSX.Element} Rendered App component.
+ */
 function App() {
   const [users, setUsers] = useState([]);
   const [onEdit, setOnEdit] = useState(null);
 
+  /**
+  * Fetches the list of users from the server.
+  *
+  * @async
+  * @function
+  */
   const getUsers = async () => {
     try {
       const response = await axios.get("http://localhost:8800");
@@ -34,16 +44,20 @@ function App() {
     }
   };
 
-    useEffect(() => {
-      getUsers();
-    }, [setUsers]);
+
+  /**
+  * useEffect hook to get the list of users when the component is mounted.
+  */
+  useEffect(() => {
+    getUsers();
+  }, [setUsers]);
 
   return (
     <>
       <Container>
         <Title>Users</Title>
-        <Form />
-        <Grid users={users} />
+        <Form onEdit={onEdit} setOnEdit={setOnEdit} getUsers={getUsers} />
+        <Grid users={users} setOnEdit={setOnEdit} getUsers={getUsers} />
       </Container>
       <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />
       <GlobalStyle />
